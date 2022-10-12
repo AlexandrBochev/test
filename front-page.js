@@ -61,7 +61,7 @@ $(function () {
 
   $('body').addClass('loading');
 
-  if (0 && $('.modal__overlay').length) {
+  if ($('.modal__overlay').length) {
     $('header').slideUp();
     $('body').addClass('modal-open');
     $('.modal__window-wrap_help').show();
@@ -78,9 +78,7 @@ $(function () {
       });
     });
   } else {
-    $('body').removeClass('modal-open');
     $('header').slideDown();
-    afterSubmitHelp();
   }
 
   var wpcf7Elm = document.querySelector('.contact__form .wpcf7');
@@ -335,7 +333,7 @@ $(function () {
   function afterSubmitHelp() {
     ScrollTrigger.matchMedia({
       // desktop
-      "(min-width: 1023px) and (max-width: 1439px)": function minWidth1024pxAndMaxWidth1439px() {
+      "(min-width: 1024px) and (max-width: 1439px)": function minWidth1024pxAndMaxWidth1439px() {
         var params = {
           scrollString: {
             start: '0',
@@ -362,18 +360,6 @@ $(function () {
         horizontalScroll(params);
       }
     });
-
-    var params = {
-      scrollString: {
-        start: '200',
-        end: '0'
-      },
-      scrollCircle: {
-        start: '200',
-        end: '0'
-      }
-    };
-    horizontalScroll(params);
   }
 
   var kefHeight;
@@ -438,8 +424,7 @@ $(function () {
       }
     });
     console.log($('.cases__info').innerWidth());
-    var containerPadd = 0;
-    // let containerPadd = parseInt($(".horizontal-container").css('padding-left'))
+    var containerPadd = 0; // let containerPadd = parseInt($(".horizontal-container").css('padding-left'))
 
     var casesAll = ($('.cases-dual').get(0).offsetLeft + containerPadd - window.innerWidth - $('.cases__all').outerWidth()) * $('.pin-spacer').outerHeight() / kefHeight;
     var marginBottomString = ($('.cases-dual').get(0).offsetLeft + containerPadd - window.innerWidth) * $('.pin-spacer').outerHeight() / kefHeight;
@@ -554,8 +539,7 @@ $(function () {
         end: "bottom+=" + marginBottomCircles + " center+=" + "100",
         scrub: true,
         markers: false,
-        id: "circles2"
-        // toggleClass: {targets: sct, className: "active"}
+        id: "circles2" // toggleClass: {targets: sct, className: "active"}
 
       }
     });
@@ -602,8 +586,7 @@ $(function () {
         markers: false,
         id: "string-top"
       }
-    });
-    // $('.two-screens_clients').height($('.clients').outerHeight() + $('.blog').outerHeight())
+    }); // $('.two-screens_clients').height($('.clients').outerHeight() + $('.blog').outerHeight())
     // $('.blog').css({
     //   'top' : $('.clients').outerHeight() + 'px',
     // })
